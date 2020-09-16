@@ -1,0 +1,53 @@
+[alias]
+    aa = add -A
+    ap = add -p
+    ci = commit -m 
+    cia = commit -a -m 
+    amend = commit --amend --verbose
+   
+    d = diff
+    dc = diff --cached
+ 
+    s = status --short --branch
+	
+    co = checkout
+    cob = checkout -b
+
+    summary = !git log $(git log -1 --merges --pretty=format:%H)..HEAD --oneline
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	
+    alias = config --get-regexp ^alias\\.
+    editor = config --get core.editor
+
+    # open currently edited (unstaged) files
+    eop = "! $(git editor) $(git ls-files --modified)"
+
+    # open files for conflicts (good for rebase/cherry-pick/merge)
+    cop = "!f() { $(git editor) $(git diff --name-only --diff-filter=U); }; f"
+
+    # open files present in diff
+    dop = "!f() { $(git editor) $(git diff --name-only $@); }; f"
+    
+    mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+
+
+[color]
+    ui = true
+[pull]
+    rebase = true
+[rerere]
+	enabled = false
+
+[diff]
+    tool = default-difftool
+[difftool "default-difftool"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+[core]
+	editor = code --wait
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[diff "sopsdiffer"]
+	textconv = sops -d
