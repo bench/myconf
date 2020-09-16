@@ -1,0 +1,46 @@
+{
+    "editor.renderWhitespace": "all",
+    "go.formatTool": "goimports",
+    "go.testFlags": [
+        "-test.count",
+        "1",
+        "-v",
+        "-race",
+        "-failfast"
+        // "-tags=integration"
+    ],
+    "gitlab.instanceUrl": "https://gitlab.keeneyetechnologies.com",
+    "go.coverOnSingleTest": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "trailing-spaces.trimOnSave": true,
+    "editor.fontSize": 13,
+    "files.associations": {
+        "Dockerfile*": "dockerfile"
+    },
+    // "gitlab.enableExperimentalFeatures": true,
+    // "gitlab.showIssueLinkOnStatusBar": false,
+    "go.lintOnSave": "off",
+    "go.lintTool": "golangci-lint",
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.rulers": [
+    80
+    ],
+    "window.openFilesInNewWindow": "on",
+    "go.lintFlags": [
+        "--fast"
+    ],
+    "window.zoomLevel": 0,
+    "go.alternateTools": {
+
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "fcrespo82.markdown-table-formatter"
+    },
+    "liveshare.increasedGuestLimit": false,
+    "go.useLanguageServer": true,
+    "go.enableCodeLens": {
+
+        "references": false,
+        "runtest": true
+    }
+}
